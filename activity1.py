@@ -1,45 +1,48 @@
-tuplex=("tuple",False,3.2,1)
-print(tuplex)
-tuplex=(1,2,3,4,5,6,7)
-print(tuplex)
-tuplex=tuplex+(9,)
-print(tuplex)
-tuplex=(1,2,3,4,7,8,9,6)
-_slice=tuplex[3:5]
-print(_slice)
-_slice=tuplex[:6]
-print(_slice)
+student_data={'id1':
+             {'name':['Sara'],
+              'CLASS':['V'],
+              'subject_intergeration':['english,math,science']
+             },
+             'id2':
+             {'name':['David'],
+              'class':['V'],
+               'subject_intergeration':['english,math,science']
+              },
+              'id3':
+             {'name':['Surya'],
+              'class':['V'],
+               'subject_intergeration':['english,math,science']
+              },
+              'id4':
+             {'name':['Sara'],
+              'class':['V'],
+               'subject_intergeration':['english,math,science']
+              },
+}
+result={}
+for key,value in student_data.items():
+    if value not in result.values():
+        result[key]=value
+print(result)
 
 
 
-def palind(r):
-    e = len(r)-1
-    s=0
-    while s<e:
-        if(r[s]!=r[e]):
-            return False
-        s+=1
-        e-=1
-        return True
-r= (1,2,3,3,2,1)
-if(palind(r)):
-    print("tuple is flip flop")
-else:
-    print("not flip flop")
+test_dict={'codingal':2,'is':2,'best':2,'for':2,'coding':1}
+print("the original dictionary:"+str(test_dict))
+K=2
+res=0
+for key in test_dict:
+    if test_dict[key]==K:
+        res=res+1
+print("frequancy of K is :"+str(res))
 
 
-weather=(1,0,0,1,0,1,0)
-sunny=0
-rainy=0
-for i in range(0,7):
-    if (weather[i]==0):
-        rainy+=1
-    else:
-        sunny+=1
-if (sunny>rainy):
-        print("good weather")
-else:
-        print("bad weather")    
-        
+country_code={'india':'0091',
+              'Australia':'0025',
+              'pakistan':'00977'}
+print("country code for india-")
+print(country_code.get('india','not found'))
+print("country code for japan-")
+print(country_code.get('japan','not found'))
 
 
