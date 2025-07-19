@@ -1,48 +1,89 @@
-student_data={'id1':
-             {'name':['Sara'],
-              'CLASS':['V'],
-              'subject_intergeration':['english,math,science']
-             },
-             'id2':
-             {'name':['David'],
-              'class':['V'],
-               'subject_intergeration':['english,math,science']
-              },
-              'id3':
-             {'name':['Surya'],
-              'class':['V'],
-               'subject_intergeration':['english,math,science']
-              },
-              'id4':
-             {'name':['Sara'],
-              'class':['V'],
-               'subject_intergeration':['english,math,science']
-              },
-}
-result={}
-for key,value in student_data.items():
-    if value not in result.values():
-        result[key]=value
-print(result)
+theBoard={'7':'','8':'','9':'',
+        '4':'','5':'','6':'',
+        '1':'','2':'','3':''}
+board_keys=[]
+for key in theBoard:
+    board_keys.append(key)
+def printBoard(board):
+    print(board['7']+'|'+board['8']+'|'+board['9'])
+    print('-+-+-')    
+    print(board['4']+'|'+board['5']+'|'+board['6'])
+    print('-+-+-')
+    print(board['1']+'|'+board['2']+'|'+board['3'])
+    print('-+-+-')  
+
+def game():
+    turn="X"
+    count=0
+    for i in range(10):
+        printBoard(theBoard)
+        print("It is ur turn,"+turn+".Move to which place")
+        move=input()
+        if theBoard[move]=='':
+            theBoard[move]=turn
+            count+=1 
+        else:
+            print("the space is already filled")
+            continue       
+        if count  >=5:
+            if theBoard['7']==theBoard['8']==theBoard['9']!='':
+                printBoard(theBoard)
+                print("\nGame Over.\n")
+                print("****"+turn+"won.****")
+                break
+            elif theBoard['4']==theBoard['5']==theBoard['6']!='':
+                printBoard(theBoard)
+                print("\nGame Over.\n")
+                print("****"+turn+"won.****")
+                break
+            elif theBoard['1']==theBoard['2']==theBoard['3']!='':
+                printBoard(theBoard)
+                print("\nGame Over.\n")
+                print("****"+turn+"won.****")
+                break
+            elif theBoard['1']==theBoard['4']==theBoard['7']!='':
+                printBoard(theBoard)
+                print("\nGame Over.\n")
+                print("****"+turn+"won.****")
+                break
+            elif theBoard['2']==theBoard['5']==theBoard['8']!='':
+                printBoard(theBoard)
+                print("\nGame Over.\n")
+                print("****"+turn+"won.****")
+                break
+            elif theBoard['3']==theBoard['6']==theBoard['9']!='':
+                printBoard(theBoard)
+                print("\nGame Over.\n")
+                print("****"+turn+"won.****")
+                break
+            elif theBoard['7']==theBoard['5']==theBoard['3']!='':
+                printBoard(theBoard)
+                print("\nGame Over.\n")
+                print("****"+turn+"won.****")
+                break
+            elif theBoard['1']==theBoard['5']==theBoard['9']!='':
+                printBoard(theBoard)
+                print("\nGame Over.\n")
+                print("****"+turn+"won.****")
+                break
+        if count ==9:
+            print("\nGame over\n its a tie")
+            if turn=="X":
+                turn="0"
+            else:
+                turn="X"
+    restart=input("Do u want to play again?y/n")
+    if restart=="Y"or restart=="y":
+        for key in board_keys:
+             theBoard  [key]=""
+        game()
+if __name__=="__main__":
+    game()             
+
+        
 
 
 
-test_dict={'codingal':2,'is':2,'best':2,'for':2,'coding':1}
-print("the original dictionary:"+str(test_dict))
-K=2
-res=0
-for key in test_dict:
-    if test_dict[key]==K:
-        res=res+1
-print("frequancy of K is :"+str(res))
 
 
-country_code={'india':'0091',
-              'Australia':'0025',
-              'pakistan':'00977'}
-print("country code for india-")
-print(country_code.get('india','not found'))
-print("country code for japan-")
-print(country_code.get('japan','not found'))
-
-
+    
