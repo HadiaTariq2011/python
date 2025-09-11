@@ -1,14 +1,19 @@
-import pygame
-pygame.init()
-window=pygame.display.set_mode((400,400))
-window.fill((255,255,255))
-GREEN=(0,255,0)
-pygame.draw.circle(window,GREEN,(300,300),50)
-pygame.draw.circle(window,GREEN,(100,100),50,3)
-pygame.display.update()
-running=True
-while running:
-    for event in pygame.event.get():
-        if event.type==pygame.QUIT:
-            running=False
-pygame.quit()            
+from tkinter import*
+window = Tk()
+window.title("Event Handler")
+window.geometry("300x200")   # Bigger window so you can see it
+
+def handle_keypress(event):
+    """Print the character associated to the key pressed"""
+    print("Key pressed:", event.char)
+
+window.bind("<Key>", handle_keypress)
+
+def handle_click(event):
+    print("The button was clicked")
+
+button = Button(text="Click me")
+button.pack(pady=20)  # Add some space
+button.bind("<Button-1>", handle_click)
+
+window.mainloop()
